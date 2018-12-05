@@ -171,10 +171,7 @@ namespace GVFS.Common
             lock (this.fileLock)
             {
                 string line = this.FormatAddLine(value);
-                if (synchronizedAction != null)
-                {
-                    synchronizedAction();
-                }
+                synchronizedAction?.Invoke();
 
                 this.WriteToDisk(line);
             }
@@ -186,10 +183,7 @@ namespace GVFS.Common
             lock (this.fileLock)
             {
                 string line = this.FormatRemoveLine(key);
-                if (synchronizedAction != null)
-                {
-                    synchronizedAction();
-                }
+                synchronizedAction?.Invoke();
 
                 this.WriteToDisk(line);
             }
@@ -223,10 +217,7 @@ namespace GVFS.Common
             {
                 try
                 {
-                    if (synchronizedAction != null)
-                    {
-                        synchronizedAction();
-                    }
+                    synchronizedAction?.Invoke();
 
                     this.fileSystem.CreateDirectory(this.dataDirectoryPath);
 

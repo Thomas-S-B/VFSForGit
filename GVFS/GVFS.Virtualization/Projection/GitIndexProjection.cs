@@ -1254,10 +1254,7 @@ namespace GVFS.Virtualization.Projection
             {
                 Dictionary<string, long> availableSizes = new Dictionary<string, long>();
 
-                if (preProcessBatch != null)
-                {
-                    preProcessBatch(placeholderList, start, end, blobSizesConnection, availableSizes);
-                }
+                preProcessBatch?.Invoke(placeholderList, start, end, blobSizesConnection, availableSizes);
 
                 for (int j = start; j < end; ++j)
                 {

@@ -43,10 +43,7 @@ namespace GVFS.UnitTests.Mock.FileSystem
             set
             {
                 this.fileProperties = value;
-                if (this.Changed != null)
-                {
-                    this.Changed();
-                }
+                this.Changed?.Invoke();
             }
         }
 

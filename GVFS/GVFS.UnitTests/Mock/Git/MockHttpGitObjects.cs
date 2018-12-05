@@ -90,10 +90,7 @@ namespace GVFS.UnitTests.Mock.Git
                 }                
             }
 
-            if (onFailure != null)
-            {
-                onFailure(new RetryWrapper<GitObjectTaskResult>.ErrorEventArgs(new Exception("Could not find mock object: " + objectId), 1, false));
-            }
+            onFailure?.Invoke(new RetryWrapper<GitObjectTaskResult>.ErrorEventArgs(new Exception("Could not find mock object: " + objectId), 1, false));
 
             return new RetryWrapper<GitObjectTaskResult>.InvocationResult(1, new Exception("Mock failure in TryDownloadObjectsAsync"));
         }

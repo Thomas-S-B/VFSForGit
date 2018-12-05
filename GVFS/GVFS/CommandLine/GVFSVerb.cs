@@ -173,10 +173,7 @@ namespace GVFS.CommandLine
             verb.ServiceName = this.ServiceName;
             verb.Unattended = this.Unattended;
 
-            if (configureVerb != null)
-            {
-                configureVerb(verb);
-            }
+            configureVerb?.Invoke(verb);
 
             try
             {
@@ -199,10 +196,7 @@ namespace GVFS.CommandLine
             verb.ServiceName = this.ServiceName;
             verb.Unattended = this.Unattended;
 
-            if (configureVerb != null)
-            {
-                configureVerb(verb);
-            }
+            configureVerb?.Invoke(verb);
 
             try
             {

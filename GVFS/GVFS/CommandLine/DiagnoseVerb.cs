@@ -453,10 +453,7 @@ namespace GVFS.CommandLine
                         this.EnlistmentRootPathParameter,
                         verb =>
                         {
-                            if (configureVerb != null)
-                            {
-                                configureVerb(verb);
-                            }
+                            configureVerb?.Invoke(verb);
 
                             verb.Output = writer;
                         });
